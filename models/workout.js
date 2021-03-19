@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-
 const workoutSchema = new Schema({
     workoutType: {
         type: String,
@@ -19,11 +18,8 @@ const workoutSchema = new Schema({
     weight: {
         type: Number
     }
-    // workoutType - cardio, resistance
-    // duration
-    //weight / pounds
 });
 
-const Workout = mongoose.model("Workout", workoutSchema)
+const Workout = mongoose.model("Workout", workoutSchema);
 
 module.exports = Workout;
