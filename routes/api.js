@@ -6,13 +6,13 @@ router.get('/exercise', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/exercise.html'))
 });
 
-router.get("/exercise?", (req, res) => {
+router.get("/exercise?id", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
 })
 
 router.get("/api/workouts", (req, res) => {
   Workout.find()
-    .sort({ day: -1 })
+    .sort({ day: 1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -21,14 +21,22 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-router.put("/api/workouts", () => {
+router.put("/api/workouts/:id", () => {
 
 })
 
 router.post("/api/workouts", () => {
+})
+
+
+router.get("/api/workouts/:range", () => {
 
 })
 
+router.get("/stats", (req, res) => {
+  // Direc to the stats page
+  res.sendFile(path.join(__dirname, "../public/stats.html"));
+})
 //
 // router.post("/api/transaction", ({ body }, res) => {
 //     Workout.create(body)
