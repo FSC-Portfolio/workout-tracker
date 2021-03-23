@@ -32,8 +32,8 @@ router.get("/api/workouts", (req, res) => {
 });
 
 // Update specific exercise
-router.put("/api/workouts/:id", (res, req) => {
-  // workout query
+router.put("/api/workouts/:id", (req, res) => {
+  // Find and update the workout, push results to exercise array.
   Workout.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body}}, {new: true}, (err, data) => {
     if (err) {
       console.log(err);

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const WorkoutSchema = new Schema({
     day: {type: Date, default: Date.now},
+    // exercises: [{type: json}],
     exercises: [{
         type: { type: String, trim: true, required: "Please enter an exercise type."},
         name: { type: String, trim: true, required: "Please enter a name."},
